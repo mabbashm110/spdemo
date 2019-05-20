@@ -8,6 +8,17 @@ const gistFile = "users.csv";
 const diskLocation = "c:\\code\\files\\names.csv";
 let responseTxt;
 
+function saveFileLocally(objSave, diskLocation) {
+    fs.writeFile(diskLocation, objSave, function(err) {
+        if (err) {
+            return console.log("Error saving")
+        }
+        else {
+            return console.log("File saved")
+        }
+    })
+}
+
 function pullGist(url, gistFile, diskLocation) {
 
     const Http = new XMLHttpRequest();

@@ -13,7 +13,7 @@ $diskLocationOne = "c:\code\files\modified.csv"
 # Open and modify CSV - Email, password, sort
 Import-Csv $diskLocation | select Id, Firstname, Lastname, "Email", "Password" | ForEach-Object {
             $_.Email = $_.Firstname + "." + $_.Lastname + "@spr.demo.com"
-            $_.Password = [System.Web.Security.Membership]::GeneratePassword(8,2)
+            $_.Password = [System.Web.Security.Membership]::GeneratePassword(8,2)   #Syntax verified online
             Write-Host $_.Password
             return $_
         } | sort FirstName -Descending | Export-Csv $diskLocationOne 
